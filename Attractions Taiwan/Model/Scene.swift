@@ -18,6 +18,8 @@ struct Scene: Hashable {
 
 extension Scene {
     static func generateData( sourceArray: inout [Scene]){
-        sourceArray = []
+        sourceArray = [
+                      Scene(name: "Taipei 101", city: "Taipei", address: "No. 7 Xinyi Road Section 5, Xinyi District, Taipei City 11049, Taiwan", description: "just 101", photoCount: 2, photos: ["101_1.jpg","101_2.jpg"])
+        ]
     }
 }

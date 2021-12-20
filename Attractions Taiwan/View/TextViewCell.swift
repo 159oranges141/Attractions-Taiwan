@@ -1,13 +1,19 @@
 //
-//  DetailHeaderViewCell.swift
+//  TextViewCell.swift
 //  Attractions Taiwan
 //
-//  Created by NDHU_CSIE on 2021/12/13.
+//  Created by NDHU_CSIE on 2021/12/20.
 //
 
 import UIKit
 
-class DetailHeaderViewCell: UITableViewCell {
+class TextViewCell: UITableViewCell {
+    
+    @IBOutlet var descriptlabel: UILabel! {
+        didSet{
+            descriptlabel.numberOfLines = 0
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

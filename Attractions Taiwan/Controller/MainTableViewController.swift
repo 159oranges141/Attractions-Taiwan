@@ -26,8 +26,12 @@ class MainTableViewController: UITableViewController {
         
         dataSource.apply(snapshot, animatingDifferences: false)
         
+        //configure the navigation title
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
+    // MARK: - UITableView Diffable Data Source
     func configureDataSource() -> DiffableDataSource {
         let cellIdentifier = "datacell"
         
@@ -45,7 +49,22 @@ class MainTableViewController: UITableViewController {
         
         return dataSource
     }
-
-    // MARK: - Table view data source
+    
+    // MARK: - For Segue's function
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                //get the destination's view controller
+                let destinationController = segue.destination as! DetailViewController
+                //pass the data from the source side to the destination side
+                destinationController.scenes = scenes[indexPath.row]
+            }
+        }
+    }
+    
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
+    }
 
 }
