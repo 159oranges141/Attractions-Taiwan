@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Attraction" representedClassName=".Attraction" syncable="YES">
+    <entity name="Scene" representedClassName=".Attraction" syncable="YES">
         <attribute name="address" attributeType="String" defaultValueString=""/>
         <attribute name="city" attributeType="String" defaultValueString=""/>
         <attribute name="descript" attributeType="String" defaultValueString=""/>
@@ -8,9 +8,9 @@
         <attribute name="photo1" optional="YES" attributeType="Binary"/>
         <attribute name="photo2" optional="YES" attributeType="Binary"/>
         <attribute name="photo3" optional="YES" attributeType="Binary"/>
-        <attribute name="photocount" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="photoCount" attributeType="Decimal" defaultValueString="0.0"/>
     </entity>
     <elements>
-        <element name="Attraction" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="Scene" positionX="-63" positionY="-18" width="128" height="163"/>
     </elements>
 </model>

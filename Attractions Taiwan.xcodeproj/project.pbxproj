@@ -16,6 +16,9 @@
 		4E0C5097275DDDD3009B0EEC /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0C5096275DDDD3009B0EEC /* MainTableViewCell.swift */; };
 		4E0C509A275DE047009B0EEC /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0C5099275DE047009B0EEC /* Scene.swift */; };
 		4E0C509E275DE543009B0EEC /* DiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0C509D275DE543009B0EEC /* DiffableDataSource.swift */; };
+		4E13A7102779727300B59115 /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13A70F2779727300B59115 /* RoundTextField.swift */; };
+		4E13A7142779959C00B59115 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13A7132779959C00B59115 /* PageViewController.swift */; };
+		4E13A71727799E7400B59115 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13A71627799E7400B59115 /* ContentViewController.swift */; };
 		4E299A842770559C0058BE3A /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E299A832770559C0058BE3A /* TextViewCell.swift */; };
 		4E299A87277055C70058BE3A /* TextTwoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E299A86277055C70058BE3A /* TextTwoViewCell.swift */; };
 		4EF937D127672A4E00F8A9DE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF937D027672A4E00F8A9DE /* MapViewController.swift */; };
@@ -38,6 +41,9 @@
 		4E0C5096275DDDD3009B0EEC /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		4E0C5099275DE047009B0EEC /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		4E0C509D275DE543009B0EEC /* DiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSource.swift; sourceTree = "<group>"; };
+		4E13A70F2779727300B59115 /* RoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
+		4E13A7132779959C00B59115 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		4E13A71627799E7400B59115 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		4E299A832770559C0058BE3A /* TextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
 		4E299A86277055C70058BE3A /* TextTwoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTwoViewCell.swift; sourceTree = "<group>"; };
 		4EF937D027672A4E00F8A9DE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +102,8 @@
 			children = (
 				4E0C5093275DDD80009B0EEC /* MainTableViewController.swift */,
 				4EF9381C276732D300F8A9DE /* DetailViewController.swift */,
+				4E13A7132779959C00B59115 /* PageViewController.swift */,
+				4E13A71627799E7400B59115 /* ContentViewController.swift */,
 				4EF937D027672A4E00F8A9DE /* MapViewController.swift */,
 				4EF937D327672A5900F8A9DE /* WeatherViewController.swift */,
 				4EF938142767311100F8A9DE /* NewSceneController.swift */,
@@ -110,6 +118,7 @@
 				4EF93810276730E100F8A9DE /* DetailHeaderView.swift */,
 				4E299A86277055C70058BE3A /* TextTwoViewCell.swift */,
 				4E299A832770559C0058BE3A /* TextViewCell.swift */,
+				4E13A70F2779727300B59115 /* RoundTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,11 +205,13 @@
 			files = (
 				4EF9381D276732D300F8A9DE /* DetailViewController.swift in Sources */,
 				4E0C5079275DDA9C009B0EEC /* AppDelegate.swift in Sources */,
+				4E13A71727799E7400B59115 /* ContentViewController.swift in Sources */,
 				4EF937D427672A5900F8A9DE /* WeatherViewController.swift in Sources */,
 				4E0C509A275DE047009B0EEC /* Scene.swift in Sources */,
 				4E299A87277055C70058BE3A /* TextTwoViewCell.swift in Sources */,
 				4E0C5094275DDD80009B0EEC /* MainTableViewController.swift in Sources */,
 				4EF93877276737F000F8A9DE /* Attractions.xcdatamodeld in Sources */,
+				4E13A7102779727300B59115 /* RoundTextField.swift in Sources */,
 				4EF938152767311100F8A9DE /* NewSceneController.swift in Sources */,
 				4E0C5097275DDDD3009B0EEC /* MainTableViewCell.swift in Sources */,
 				4E0C507B275DDA9C009B0EEC /* SceneDelegate.swift in Sources */,
@@ -208,6 +219,7 @@
 				4E0C509E275DE543009B0EEC /* DiffableDataSource.swift in Sources */,
 				4EF937D127672A4E00F8A9DE /* MapViewController.swift in Sources */,
 				4E299A842770559C0058BE3A /* TextViewCell.swift in Sources */,
+				4E13A7142779959C00B59115 /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -71,7 +71,7 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         case 1:  //for prototype cell 2
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TextViewCell.self), for: indexPath) as! TextViewCell
             
-            cell.descriptlabel.text = scenes.description
+            cell.descriptlabel.text = scenes.descript
             cell.selectionStyle = .none
             
             return cell
