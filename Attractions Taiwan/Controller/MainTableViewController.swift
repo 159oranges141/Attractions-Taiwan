@@ -36,7 +36,8 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //fetchs
+        // fetch data from the data store
+        fetchSceneData()   //will refresh the table view
     }
     
     // MARK: - UITableView Diffable Data Source
@@ -112,9 +113,9 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
 }
 
 //extension MainTableViewController: NSFetchedResultsControllerDelegate {
-    
+//    
 //    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 //        updateSnapshot()
- //   }
-    
+//    }
+//    
 //}

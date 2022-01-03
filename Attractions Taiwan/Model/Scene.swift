@@ -27,13 +27,13 @@ public class Scene: NSManagedObject {
     @NSManaged public var city: String
     @NSManaged public var address: String
     @NSManaged public var descript: String
-    @NSManaged public var photoCount: Decimal
+    @NSManaged public var photoCount: Int16
     @NSManaged public var photo1: Data?
     @NSManaged public var photo2: Data?
     @NSManaged public var photo3: Data?
     
     // implement one customized managed object constructor
-    convenience init(name: String, city: String, address: String, descript: String, photoCount: Decimal, photo1: String, photo2: String, photo3: String) {
+    convenience init(name: String, city: String, address: String, descript: String, photoCount: Int, photo1: String, photo2: String, photo3: String) {
         
         let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
         self.init(context: appDelegate!.persistentContainer.viewContext)
@@ -41,10 +41,10 @@ public class Scene: NSManagedObject {
         self.city = city
         self.address = address
         self.descript = descript
-        self.photoCount = photoCount
-        self.photo1 = UIImage(named: photo1)!.pngData()!
-        self.photo2 = UIImage(named: photo2)!.pngData()!
-        self.photo3 = UIImage(named: photo3)!.pngData()!
+        self.photoCount = Int16(photoCount)
+        self.photo1 = UIImage(named: photo1)?.pngData()!
+        self.photo2 = UIImage(named: photo2)?.pngData()!
+        self.photo3 = UIImage(named: photo3)?.pngData()!
     }
     
 }

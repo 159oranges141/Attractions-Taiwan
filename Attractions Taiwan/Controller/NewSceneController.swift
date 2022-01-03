@@ -53,47 +53,46 @@ class NewSceneController: UITableViewController, UITextFieldDelegate {
     
     // MARK: - UITableViewDelegate methods
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 4 {
-            
-            let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo source", preferredStyle: .actionSheet)
-            
-            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
-                if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                    let imagePicker = UIImagePickerController()
-                    imagePicker.allowsEditing = false
-                    imagePicker.sourceType = .camera
-                    //imagePicker.delegate = self
-                    
-                    self.present(imagePicker, animated: true, completion: nil)
-                }
-            })
-            
-            let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: { (action) in
-                if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-                    let imagePicker = UIImagePickerController()
-                    imagePicker.allowsEditing = false
-                    imagePicker.sourceType = .photoLibrary
-                    //imagePicker.delegate = self
-                    
-                    self.present(imagePicker, animated: true, completion: nil)
-                }
-            })
-            
-            photoSourceRequestController.addAction(cameraAction)
-            photoSourceRequestController.addAction(photoLibraryAction)
-            
-            // For iPad
-            if let popoverController = photoSourceRequestController.popoverPresentationController {
-                if let cell = tableView.cellForRow(at: indexPath) {
-                    popoverController.sourceView = cell
-                    popoverController.sourceRect = cell.bounds
-                }
-            }
-            
-            present(photoSourceRequestController, animated: true, completion: nil)
-            
-        }
+    @IBAction func AddFirstPhoto(sender: UIButton) {
+        let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo source", preferredStyle: .actionSheet)
+        
+                    let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+                        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                            let imagePicker = UIImagePickerController()
+                            imagePicker.allowsEditing = false
+                            imagePicker.sourceType = .camera
+                            imagePicker.delegate = self
+        
+                            self.present(imagePicker, animated: true, completion: nil)
+                        }
+                    })
+        
+                    let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: { (action) in
+                        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                            let imagePicker = UIImagePickerController()
+                            imagePicker.allowsEditing = false
+                            imagePicker.sourceType = .photoLibrary
+                            imagePicker.delegate = self
+        
+                            self.present(imagePicker, animated: true, completion: nil)
+                        }
+                    })
+        
+                    photoSourceRequestController.addAction(cameraAction)
+                    photoSourceRequestController.addAction(photoLibraryAction)
+        
+                    present(photoSourceRequestController, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func DeleteFirstPhoto(sender: UIButton) {
+        photoImageView1.image = nil
+    }
+    @IBAction func DeleteSecondPhoto(sender: UIButton) {
+        photoImageView2.image = nil
+    }
+    @IBAction func DeleteThirdPhoto(sender: UIButton) {
+        photoImageView3.image = nil
     }
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
@@ -176,5 +175,6 @@ extension NewSceneController: UIImagePickerControllerDelegate, UINavigationContr
         
         dismiss(animated: true, completion: nil)
     }
+    
     
 }

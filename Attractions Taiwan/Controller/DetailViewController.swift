@@ -11,6 +11,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet var tableview: UITableView!
     @IBOutlet var headerview: DetailHeaderView!
+    @IBOutlet var pageTurn: UIPageControl!
     
     var scenes: Scene!
     
@@ -23,6 +24,7 @@ class DetailViewController: UIViewController {
         
         // Config data on the table header
         headerview.namelabel.text = scenes.name
+        pageTurn.numberOfPages = Int(scenes.photoCount)
         
         
 
@@ -36,10 +38,15 @@ class DetailViewController: UIViewController {
             let destinationController = segue.destination as! MapViewController
             destinationController.scenes = scenes
         }
-        //else if segue.identifier == "showWeather" {
-        //    let destinationController = segue.destination as! WeatherViewController
-        //    destinationController.scenes = scenes
-        //}
+        else if segue.identifier == "showPager" {
+            let des = segue.destination as! PageViewController
+            des.scenes = scenes
+            des.indexDalegate = self
+        }
+        else if segue.identifier == "showWeather" {
+            let destinationController = segue.destination as! weathernewViewController
+            destinationController.scenes = scenes
+        }
     }
     
     
@@ -80,5 +87,12 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
             fatalError("Failed to instantiate the table view cell for detail view controller")
             
         }
+    }
+}
+
+extension DetailViewController: PageIndexDelegate {
+    
+    func didUpdatePageIndex(currentIndex: Int) {
+        pageTurn.currentPage = currentIndex
     }
 }
