@@ -181,16 +181,17 @@ class NewSceneController: UITableViewController, UITextFieldDelegate {
         scenes.descript = descriptionTextView.text
         if let imageData1 = photoImageView1.image?.pngData() {  //having a default image already
                 scenes.photo1 = imageData1
-                scenes.photoCount = 1
+                scenes.photoCount += 1
         }
         if let imageData2 = photoImageView2.image?.pngData() {  //having a default image already
             scenes.photo2 = imageData2
-            scenes.photoCount = 2
+            scenes.photoCount += 1
         }
         if let imageData3 = photoImageView3.image?.pngData() {  //having a default image already
             scenes.photo3 = imageData3
-            scenes.photoCount = 3
+            scenes.photoCount += 1
         }
+        
         
         appDelegate.saveContext()
         
