@@ -94,7 +94,9 @@
                                         </label>
                                         <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="C3U-f4-2GS">
                                             <rect key="frame" x="127" y="314" width="121.33333333333331" height="27.333333333333314"/>
-                                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </pageControl>
                                         <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQe-oz-fir">
                                             <rect key="frame" x="10" y="49" width="355" height="257"/>
@@ -572,6 +574,9 @@
                                                                         <constraint firstAttribute="height" constant="24" id="tHU-vd-w0s"/>
                                                                     </constraints>
                                                                     <state key="normal" image="plus" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="AddSecondPhotoWithSender:" destination="c3c-qc-MUC" eventType="touchUpInside" id="ILE-3D-lY7"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -602,6 +607,9 @@
                                                                         <constraint firstAttribute="width" constant="18.329999999999998" id="Vog-q8-jiA"/>
                                                                     </constraints>
                                                                     <state key="normal" image="plus" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="AddThirdPhotoWithSender:" destination="c3c-qc-MUC" eventType="touchUpInside" id="NXE-j7-hWh"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>

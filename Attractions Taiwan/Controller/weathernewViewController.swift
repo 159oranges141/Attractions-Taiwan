@@ -50,8 +50,8 @@ class weathernewViewController: UIViewController {
                     print("Descrition: \(weatherData.weather[0].description)")
                     OperationQueue.main.addOperation {
                         self.city.text = weatherData.name
-                        self.temperature.text = String(weatherData.main.temp)
-                        self.humidity.text = String(weatherData.main.humidity)
+                        self.temperature.text = "Temperature: \(weatherData.main.temp)°C"
+                        self.humidity.text = "Humidity: \(weatherData.main.humidity)%"
                         self.summary.text = weatherData.weather[0].description
                     }
                 }

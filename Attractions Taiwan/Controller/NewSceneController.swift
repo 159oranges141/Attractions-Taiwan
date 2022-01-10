@@ -45,7 +45,7 @@ class NewSceneController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet var photoImageView3: UIImageView!
     
-    
+    var imageselector: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,33 +56,101 @@ class NewSceneController: UITableViewController, UITextFieldDelegate {
     @IBAction func AddFirstPhoto(sender: UIButton) {
         let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo source", preferredStyle: .actionSheet)
         
-                    let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
-                        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                            let imagePicker = UIImagePickerController()
-                            imagePicker.allowsEditing = false
-                            imagePicker.sourceType = .camera
-                            imagePicker.delegate = self
+        imageselector = 1
         
-                            self.present(imagePicker, animated: true, completion: nil)
-                        }
-                    })
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .camera
+                imagePicker.delegate = self
+                
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
         
-                    let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: { (action) in
-                        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-                            let imagePicker = UIImagePickerController()
-                            imagePicker.allowsEditing = false
-                            imagePicker.sourceType = .photoLibrary
-                            imagePicker.delegate = self
+        let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.delegate = self
+                
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
         
-                            self.present(imagePicker, animated: true, completion: nil)
-                        }
-                    })
+        photoSourceRequestController.addAction(cameraAction)
+        photoSourceRequestController.addAction(photoLibraryAction)
         
-                    photoSourceRequestController.addAction(cameraAction)
-                    photoSourceRequestController.addAction(photoLibraryAction)
+        present(photoSourceRequestController, animated: true, completion: nil)
         
-                    present(photoSourceRequestController, animated: true, completion: nil)
+    }
+    
+    @IBAction func AddSecondPhoto(sender: UIButton) {
+        let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo source", preferredStyle: .actionSheet)
         
+        imageselector = 2
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .camera
+                imagePicker.delegate = self
+                
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
+        
+        let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.delegate = self
+                
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
+        
+        photoSourceRequestController.addAction(cameraAction)
+        photoSourceRequestController.addAction(photoLibraryAction)
+        
+        present(photoSourceRequestController, animated: true, completion: nil)
+    }
+    
+    @IBAction func AddThirdPhoto(sender: UIButton) {
+        let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo source", preferredStyle: .actionSheet)
+        
+        imageselector = 3
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .camera
+                imagePicker.delegate = self
+                
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
+        
+        let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.delegate = self
+                
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
+        
+        photoSourceRequestController.addAction(cameraAction)
+        photoSourceRequestController.addAction(photoLibraryAction)
+        
+        present(photoSourceRequestController, animated: true, completion: nil)
     }
     
     @IBAction func DeleteFirstPhoto(sender: UIButton) {
@@ -112,14 +180,14 @@ class NewSceneController: UITableViewController, UITextFieldDelegate {
         scenes.address = addressTextField.text!
         scenes.descript = descriptionTextView.text
         if let imageData1 = photoImageView1.image?.pngData() {  //having a default image already
-            scenes.photo1 = imageData1
-            scenes.photoCount = 1
+                scenes.photo1 = imageData1
+                scenes.photoCount = 1
         }
-        if let imageData2 = photoImageView1.image?.pngData() {  //having a default image already
+        if let imageData2 = photoImageView2.image?.pngData() {  //having a default image already
             scenes.photo2 = imageData2
             scenes.photoCount = 2
         }
-        if let imageData3 = photoImageView1.image?.pngData() {  //having a default image already
+        if let imageData3 = photoImageView3.image?.pngData() {  //having a default image already
             scenes.photo3 = imageData3
             scenes.photoCount = 3
         }
@@ -147,33 +215,34 @@ extension NewSceneController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let selectedImage1 = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            photoImageView1.image = selectedImage1
-            photoImageView1.contentMode = .scaleAspectFill
-            photoImageView1.clipsToBounds = true
+            if imageselector == 1 {
+                photoImageView1.image = selectedImage1
+                photoImageView1.contentMode = .scaleAspectFill
+                photoImageView1.clipsToBounds = true
+            }
         }
         
         if let selectedImage2 = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            photoImageView2.image = selectedImage2
-            photoImageView2.contentMode = .scaleAspectFill
-            photoImageView2.clipsToBounds = true
+            if imageselector == 2 {
+                photoImageView2.image = selectedImage2
+                photoImageView2.contentMode = .scaleAspectFill
+                photoImageView2.clipsToBounds = true
+            }
         }
-        
+
         if let selectedImage3 = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            photoImageView3.image = selectedImage3
-            photoImageView3.contentMode = .scaleAspectFill
-            photoImageView3.clipsToBounds = true
+            if imageselector == 3 {
+                photoImageView3.image = selectedImage3
+                photoImageView3.contentMode = .scaleAspectFill
+                photoImageView3.clipsToBounds = true
+            }
         }
-        
-        //set constraints here
-        
-        // get the selectedImageName
-        //if let url = info[UIImagePickerController.InfoKey.imageURL] as? URL {
-        //selectedImageName = url.path
-        //print(selectedImageName)
-        //}
-        
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerTwo(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
     }
     
     
