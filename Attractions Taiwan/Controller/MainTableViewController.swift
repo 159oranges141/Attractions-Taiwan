@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class MainTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MainTableViewController: UITableViewController{
     
     var fetchResultController: NSFetchedResultsController<Scene>!
     var appDelegate: AppDelegate!
@@ -75,6 +75,35 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: - swipe-to-left
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        //Get the selected restaurant
+        guard let scene = self.dataSource.itemIdentifier(for: indexPath) else {
+            return UISwipeActionsConfiguration()
+        }
+
+        
+        //Delete Action
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
+            
+            // Delete the data from the data store
+            self.managedContext.delete(scene)
+            self.appDelegate.saveContext()
+
+            // Call completion handler to dismiss the action button
+            completionHandler(true)
+        }
+        // Change the button's color
+        deleteAction.backgroundColor = UIColor.systemRed
+        deleteAction.image = UIImage(systemName: "trash")
+        
+        // Configure the action as swipe action
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
+
+        return swipeConfiguration
+
+    }
 
     // MARK: - Core Data
 
@@ -112,10 +141,10 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
 
 }
 
-//extension MainTableViewController: NSFetchedResultsControllerDelegate {
-//    
-//    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-//        updateSnapshot()
-//    }
-//    
-//}
+extension MainTableViewController: NSFetchedResultsControllerDelegate {
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        updateSnapshot()
+    }
+    
+}
